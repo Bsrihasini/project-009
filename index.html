@@ -18,15 +18,44 @@
     <div class="menu">
         <nav>
             <ul>
-            <li class="active"><img src="/images/dashboard.png" alt=""/>Dashboard</li>
-            <li><img src="/images/profile.png" alt=""/>My Profile</li>
-            <li><img src="/images/users.png" alt=""/>Users</li>
-            <li><img src="/images/settings.png" />Settings</li>
+            <li class="active" onclick="loadModules(1)"><img src="images/dashboard.png" alt=""/>Dashboard</li>
+            <li onclick="loadModules(2)"><img src="images/profile.png" alt=""/>My Profile</li>
+            <li onclick="loadModules(3)"><img src="images/users.png" alt=""/>Users</li>
+            <li onclick="loadModules(4)"><img src="images/settings.png" alt=""/>Settings</li>
             </ul>
         </nav>
     </div>
-    <div class="workspace">Workspace</div>
+    <div class="workspace">
+       <iframe src="dashboard.html" id="iframe"></iframe>
+    </div>
     <div class="footer">Copyright @ 2025 . All Rights Reserved .</div>
     </section>
 </body>
+<script>
+    function loadModules(mid) {
+        const menuItems = document.querySelectorAll(`section.menu nav ul li`);
+
+        //remove active on the li tag
+        for(li of menuItems)
+         li.classList.remove(`active`);
+
+         //add active on the li tag which is selected by user
+         event.currentTarget,classList.add(`active`);
+
+        switch(mid){
+            case 1: 
+               iframe.src = "dashboard.html";
+               break;
+            case 2: 
+               iframe.src = "users.html";
+               break;
+            case 3: 
+               iframe.src = "myprofile.html";
+               break;
+            case 4: 
+               iframe.src = "settings.html";
+               break;
+        }
+    }
+</script>
 </html>
